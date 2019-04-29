@@ -1,0 +1,150 @@
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<label>
+    <input type="checkbox"  />
+    <div class="card">
+        <div class="front">
+						<div id="chartdiv"></div>
+      </div>
+        <div class="back">
+          <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+      </div>
+    </div>
+</label>
+---------------------------------------------------------------------------------------
+
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+
+
+body {
+    background: #F17563;
+    font-family: Open Sans;
+    font-size: 50px;
+  	color: #222;
+}
+
+label {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+  
+    cursor: pointer;
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+}
+
+    .card div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #FFF;
+        text-align: center;
+        line-height: 200px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 2px;
+    }
+
+    .card .back {
+        background: #222;
+        color: #FFF;
+        -webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+    }
+
+
+input {
+    display: none;
+}
+
+:checked + .card {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+
+--------------------------------------------------------------------------------------------
+/**
+ * ---------------------------------------
+ * This demo was created using amCharts 4.
+ * 
+ * For more information visit:
+ * https://www.amcharts.com/
+ * 
+ * Documentation is available at:
+ * https://www.amcharts.com/docs/v4/
+ * ---------------------------------------
+ */
+
+// Themes begin
+  am4core.useTheme(am4themes_animated);
+  // Themes end
+
+  // Create chart instance
+  var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+  // Add data
+  chart.data = generateChartData();
+
+  // Create axes
+  var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+  dateAxis.renderer.minGridDistance = 200;
+
+  var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+  // Create series
+  var series = chart.series.push(new am4charts.LineSeries());
+  series.dataFields.valueY = "visits";
+  series.dataFields.dateX = "date";
+  series.strokeWidth = 2;
+  series.minBulletDistance = 5;
+  series.tooltipText = "{valueY}";
+  series.tooltip.pointerOrientation = "vertical";
+  series.tooltip.background.cornerRadius = 20;
+  series.tooltip.background.fillOpacity = 0.5;
+
+
+  // Add cursor
+  chart.cursor = new am4charts.XYCursor();
+  chart.cursor.xAxis = dateAxis;
+  chart.cursor.snapToSeries = series;
+
+  function generateChartData() {
+      var chartData = [];
+      var firstDate = new Date();
+      firstDate.setDate(firstDate.getDate() - 1000);
+      var visits = 1200;
+      for (var i = 0; i < 500; i++) {
+          // we create date objects here. In your data, you can have date strings
+          // and then set format of your dates using chart.dataDateFormat property,
+          // however when possible, use date objects, as this will speed up chart rendering.
+          var newDate = new Date(firstDate);
+          newDate.setDate(newDate.getDate() + i);
+
+          visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+
+          chartData.push({
+              date: newDate,
+              visits: visits
+          });
+      }
+      return chartData;
+  }
