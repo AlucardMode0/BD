@@ -1,5 +1,6 @@
 # BD
 
+https://www.amcharts.com/demos/angular-gauge/
 https://www.amcharts.com/demos/line-chart-with-scroll-and-zoom/
 
 
