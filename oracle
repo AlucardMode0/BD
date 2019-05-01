@@ -59,5 +59,6 @@ Insert into camera values('42_3',null,42);
 Insert into senzori values(30,'temp',0,TO_DATE('22/05/2011 8:30:00','DD/MM/YY HH:MI:SS'),'41_1');
 
 select * from casa;
-select to_char(data, 'MM-DD-YYYY HH24:MI:SS') from senzori;
+select data,value from senzori order by data asc;
 select * from camera;
+commit

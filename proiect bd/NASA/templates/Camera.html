@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" /><!--<link rel="stylesheet"  href="{{ url_for('static', filename='css/Card_rotary.css') }}"/> -->
+    <link rel="stylesheet"  href="{{ url_for('static', filename='css/Card_rotary.css') }}"/>
+    <link rel="stylesheet"  href="{{ url_for('static', filename='css/now-ui-dashboard.css') }}"/>
+
+
+</head>
+
+<body>
+
+<table>
+  <tr>
+    <td height="300", width="3000">
+        <label>
+
+                      <input type="checkbox"  style="display:none"/>
+                      <div class="card">
+                          <div class="front">
+                               <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                                <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+                                <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                                          <div id="chartdiv"></div>
+                                          <script type="text/javascript" src="../static/Charts.js?u={{ last_updated }}" >
+
+
+                                          </script>
+                               </div>
+                          <div class="back">
+                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                        </div>
+                      </div>
+                  </label>
+      </td>
+
+  </tr>
+
+</table>
+
+
+
+</body>
+
+</html>
+
+<!--
+
+
+
+  <tr>
+    <td height="300", width="3000"> <label>
+                      <input type="checkbox"  />
+                      <div class="card">
+                          <div class="front">
+                                          <div id="chartdiv1"></div>
+                               </div>
+                          <div class="back">
+                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                        </div>
+                      </div>
+                  </label>
+      </td>
+  </tr>
+
+  <tr>
+     <td height="300", width="3000"> <label>
+                      <input type="checkbox"  />
+                      <div class="card">
+                          <div class="front">
+                                          <div id="chartdiv"></div>
+                               </div>
+                          <div class="back">
+                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                        </div>
+                      </div>
+                  </label>
+      </td>
+  </tr>
+
+----------------------------------------------------------------------------------------------------------------------
+ <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+                  <label>
+                      <input type="checkbox"  />
+                      <div class="card">
+                          <div class="front">
+                                          <div id="chartdiv"></div>
+                                          <script type="text/javascript">
+
+                                            // Themes end
+
+                                            // Create chart instance
+                                            var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+                                            // Add data
+                                            chart.data = generateChartData();
+
+                                            // Create axes
+                                            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+                                            dateAxis.renderer.minGridDistance = 100;
+
+                                            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+                                            // Create series
+                                            var series = chart.series.push(new am4charts.LineSeries());
+                                            series.dataFields.valueY = "visits";
+                                            series.dataFields.dateX = "date";
+                                            series.strokeWidth = 2;
+                                            series.minBulletDistance = 5;
+                                            series.tooltipText = "{valueY}";
+                                            series.tooltip.pointerOrientation = "vertical";
+                                            series.tooltip.background.cornerRadius = 20;
+                                            series.tooltip.background.fillOpacity = 0.5;
+                                            series.tooltip.label.padding(12,12,12,12)
+
+                                            // Add cursor
+                                            chart.cursor = new am4charts.XYCursor();
+                                            chart.cursor.xAxis = dateAxis;
+                                            chart.cursor.snapToSeries = series;
+
+                                            function generateChartData() {
+                                                var chartData = [];
+                                                var firstDate = new Date();
+                                                firstDate.setDate(firstDate.getDate() - 1000);
+                                                var visits = 1200;
+                                                for (var i = 0; i < 1200; i++) {
+                                                    // we create date objects here. In your data, you can have date strings
+                                                    // and then set format of your dates using chart.dataDateFormat property,
+                                                    // however when possible, use date objects, as this will speed up chart rendering.
+                                                    var newDate = new Date(firstDate);
+                                                    newDate.setDate(newDate.getDate() + i);
+
+                                                    visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+
+                                                    chartData.push({
+                                                        date: newDate,
+                                                        visits: visits
+                                                    });
+                                                }
+                                                return chartData;
+                                            }
+                                            </script>
+                        </div>
+                          <div class="back">
+                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                        </div>
+                      </div>
+                  </label>
+-->
