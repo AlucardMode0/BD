@@ -1,0 +1,63 @@
+CREATE SEQUENCE casa_id_seq
+  START WITH 1
+  INCREMENT BY 1;
+
+CREATE TABLE camera (
+    camera_id       varchar2(6) NOT NULL,
+    metri_patrati   NUMBER(3),
+    casa_id         NUMBER(3) NOT NULL
+);
+
+ALTER TABLE camera ADD CONSTRAINT camera_pk PRIMARY KEY ( camera_id );
+
+CREATE TABLE casa (
+    casa_id   varchar2(6) NOT NULL,
+    adresa    VARCHAR2(100) NOT NULL
+);
+
+ALTER TABLE casa ADD CONSTRAINT casa_pk PRIMARY KEY ( casa_id );
+
+CREATE TABLE istoric_senzori (
+    tip          VARCHAR2(20) NOT NULL,
+    value        NUMBER(7) NOT NULL,
+    data         DATE NOT NULL,
+    id_senzori   NUMBER(5) NOT NULL
+);
+
+CREATE TABLE senzori (
+    id_senzori   NUMBER(5) NOT NULL,
+    tip          VARCHAR2(20) NOT NULL,
+    value        NUMBER(7) NOT NULL,
+    data         DATE NOT NULL,
+    camera_id    varchar2(6) NOT NULL
+);
+
+ALTER TABLE senzori ADD CONSTRAINT senzori_pk PRIMARY KEY ( id_senzori );
+
+ALTER TABLE camera
+    ADD CONSTRAINT camera_casa_fk FOREIGN KEY ( casa_id )
+        REFERENCES casa ( casa_id );
+
+ALTER TABLE istoric_senzori
+    ADD CONSTRAINT istoric_senzori_senzori_fk FOREIGN KEY ( id_senzori )
+        REFERENCES senzori ( id_senzori );
+
+ALTER TABLE senzori
+    ADD CONSTRAINT senzori_camera_fk FOREIGN KEY ( camera_id )
+        REFERENCES camera ( camera_id );
+
+
+Insert into casa values(casa_id_seq.nextval,'Tutea Pentre,nr. 2,bl. 844,sc. b,et. 2,ap. 11');
+Insert into casa values(casa_id_seq.nextval,'Tutea Pentre,nr. 3,bl. 899,sc. b,et. 3,ap. 13');
+Insert into casa values(casa_id_seq.nextval,'Tutea Pentre,nr. 4,bl. 855,sc. b,et. 5,ap. 12');
+Insert into casa values(casa_id_seq.nextval,'Tutea Pentre,nr. 5,bl. 877,sc. b,et. 1,ap. 15');
+Insert into casa values(casa_id_seq.nextval,'Tutea Pentre,nr. 6,bl. 800,sc. b,et. 10,ap. 21');
+Insert into casa values(casa_id_seq.nextval,'Tutea Pentre,nr. 7,bl. 822,sc. b,et. 6,ap. 18');
+
+Insert into camera values('42_3',null,42);
+
+Insert into senzori values(30,'temp',0,TO_DATE('22/05/2011 8:30:00','DD/MM/YY HH:MI:SS'),'41_1');
+
+select * from casa;
+select to_char(data, 'MM-DD-YYYY HH24:MI:SS') from senzori;
+select * from camera;
