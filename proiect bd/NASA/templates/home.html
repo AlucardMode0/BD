@@ -16,65 +16,76 @@
 		<div class="card">
 			<div class="front">
 				<h1>Bloc</h1>
-																	<label>
 
-																				<input type="checkbox"  />
-																					<div class="card">
-																						<div class="front">
-																							<h1>NEW Home</h1>
-																							<input name="ID"  value="ID">
-																							
-																						</div>
-																					
-																						<div class="back">
-																							<h1>Iknow my ID</h1>
-																								<form method="POST">
-																								<input name="bloc_Str"  value="Str">
-																								<input name="bloc_nr"   value="nr">
-																								<input name="bloc_bl"   value="bl">
-																								<input name="bloc_et"   value="et">
-																								<input name="bloc_ap"   value="ap">
-																								<input name="bloc_nr_camere"   value="nr_camere">
-																								<input type="submit">
-																								</form>
-																						</div>
-																					</div>
-																			</label>
+						<h1>I know my ID</h1>
+						<form method="POST">
+						<input name="ID"  value="ID_casa">
+						<input name="Camera"  value="Camera">
+						<input name="aut"  value="bloc_aut" type="hidden">
+						<input type="submit">
+							</form>
+
+
+
+						<h1>NEW Home</h1>
+							<form method="POST">
+							<input name="bloc_Str"  value="Str">
+							<input name="bloc_nr"   value="nr">
+							<input name="bloc_bl"   value="bl">
+							<input name="bloc_et"   value="et">
+							<input name="bloc_ap"   value="ap">
+								<input name="aut"  value="bloc_new" type="hidden">
+							<input name="bloc_nr_camere"   value="nr_camere">
+							<input type="submit" >
+							</form>
+
+
 				
 			</div>
 		
 			<div class="back">
 				<h1>Casa</h1>
-																	<label>
 
-																				<input type="checkbox" />
-																					<div class="card">
-																						<div class="front">
-																							<h1>NEW Home</h1>
-																							<input name="ID"  value="ID">
-																							
-																						</div>
-																					
-																						<div class="back">
-																							<h1>Iknow my ID</h1>
-																								<form method="POST">
-																								<input name="casa_ID"   value="ID">
-																								<input name="casa_Str"  value="Str">
-																								<input name="casa_nr"   value="nr">
-																								<input name="casa_nr_camere" value="nr_camere">
-																								<input type="submit">
-																									</form>
-																						</div>
-																					</div>
-																			</label>
+
+					<h1>Iknow my ID</h1>
+					<form method="POST">
+					<input name="ID"  value="ID_ap">
+					<input name="Camera"  value="Camera">
+						<input name="aut"  value="casa_aut" type="hidden">
+					<input type="submit"  >
+					</form>
+
+
+
+
+					<h1>NEW Home</h1>
+						<form method="POST">
+						<input name="casa_Str"  value="Str">
+						<input name="casa_nr"   value="nr">
+						<input name="casa_nr_camere" value="nr_camere">
+							<input name="aut"  value="casa_new" type="hidden">
+						<input type="submit"  >
+							</form>
+
 			</div>
 		</div>
 </label>
 <body class="">
-<form method="POST">
+
 
     <!--<input name="nr_telefon">-->
 
+<script>
+function myFunction() {
+  var checkBox = document.getElementById("myCheck");
+  var text = document.getElementById("text");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+}
+</script>
 
 </body>
 

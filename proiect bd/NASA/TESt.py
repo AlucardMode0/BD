@@ -4,7 +4,7 @@ import datetime
 import threading
 import os
 from random import randint
-from flask import Flask,  request, render_template
+from flask import Flask,  request, render_template,redirect
 import fileinput
 import sys
 import time
@@ -23,13 +23,28 @@ Casa= ''
 locatie= ''
 
 
-def replaceAll(file, searchExp, replaceExp):
+def replaceAll(file):
     while (1):
+        list = []
+        connection = cx_Oracle.connect('system/PentaKill11@localhost:1521/xe')
+        cur = connection.cursor()
+        cur.execute(
+            "select 'new Date'||TO_CHAR(data, '(YYYY, MM, DD, HH24, MI, SS)') ,value from senzori order by data asc")
+        for result in cur:
+            dict = {"date": 0, "visits": 0}
+            dict["date"] = result[0]
+            dict["visits"] = result[1]
+            list.append(dict)
+        cur.close()
+        connection.close()
+        string = ''
+        for i in list:
+            string = string + "{'date': " + i['date'] + " ,'visits': " + str(i['visits']) + '},'
         for line in fileinput.input(file, inplace=1):
-            if searchExp in line:
-                line = line.replace(line, replaceExp)
+            if 'var chartData = ' in line:
+                line = line.replace(line, 'var chartData = [{0}];\n'.format(string))
             sys.stdout.write(line)
-        time.sleep(0.5)
+        time.sleep(10)
 
 
 def dir_last_updated(folder):
@@ -40,34 +55,20 @@ def dir_last_updated(folder):
 app = Flask(__name__)
 @app.route('/')
 def my_form():
+
     return render_template('home.html')
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    global Casa
-    global locatie
-    ID = request.form['ID']
-    Casa = ID.upper()
-    adresa = request.form['adresa']
-    locatie = adresa.upper()
-    print (Casa,locatie)
+    str = request.form['aut']
+    print(str)
     return render_template("Camera.html", last_updated=dir_last_updated('static'))
+
 
 @app.route("/camera")
 def salvador():
     return render_template("Camera.html", last_updated=dir_last_updated('static'))
 if __name__ == "__main__":
-    list = []
-    connection = cx_Oracle.connect('system/PentaKill11@localhost:1521/xe')
-    cur = connection.cursor()
-    cur.execute('select data,value from senzori order by data asc')
-    for result in cur:
-        dict = {"date": "date", "visits": 0}
-        dict["date"] = str(result[0])
-        dict["visits"] = result[1] + 23
-        list.append(dict)
-    cur.close()
-    connection.close()
-    Thread(target=replaceAll,
-           args=("static/Charts.js", 'var chartData = ', 'var chartData = {0};\n'.format(list))).start()
+
+    Thread(target=replaceAll,args=("static/Charts.js",)).start()
     app.run()
