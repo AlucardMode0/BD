@@ -9,7 +9,9 @@
     <link rel="stylesheet"  href="{{ url_for('static', filename='css/Card_rotary.css') }}"/>
 
 </head>
-
+ {% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+  {% endif %}
 <label>
 
 	<input type="checkbox" style="display:none" />

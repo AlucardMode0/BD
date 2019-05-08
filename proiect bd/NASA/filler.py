@@ -4,7 +4,7 @@ from random import randint
 connection = cx_Oracle.connect('system/PentaKill11@localhost:1521/xe')
 cur = connection.cursor()
 for i in range (0,2000 ):
-    cur.execute("Insert into senzori values({0},'temp',{0},TO_DATE('{1}/{4}/{2} {5}:{3}:00','DD/MM/YY HH:MI:SS'),'41_1')".format(i,randint(1,11),randint(2014,2018),randint(0,59),randint(1,11),randint(1,12)))
+    cur.execute("Insert into istoric_senzori values('trafic',{0},TO_DATE('{1}/{4}/{2} {5}:{3}:00','DD/MM/YY HH:MI:SS'),274)".format(i,randint(1,11),randint(2014,2018),randint(0,59),randint(1,11),randint(1,12)))
     cur.execute("commit");
 cur.close()
 connection.close()

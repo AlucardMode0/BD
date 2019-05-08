@@ -10,7 +10,9 @@
 </head>
 
 <body>
-
+ {% if error %}
+    <p class=error><strong>ID-ul casei este</strong> {{ error }}
+  {% endif %}
 <table>
   <tr>
     <td height="300", width="3000">
@@ -21,12 +23,27 @@
                           <div class="front">
                                <script src="https://www.amcharts.com/lib/4/core.js"></script>
                                 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-                                <script src="https://www.amcharts.com/lib/4/charts.js"></script>
-                                          <div id="chartdiv"></div>
-                                          <script type="text/javascript" src="../static/Charts.js?u={{ last_updated }}" >
+                               <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                                          <table style="width:100%">
+                                                <td></td><div id="chartdiv"></div></td>
+                                              <td align="right">
+                                                        <form method="POST">
+                                                    <input name="start"  value="data_start">
+                                                    <input name="stop"  value="data_stop">
+                                                    <input name="delete"  value="delete" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input name="valoare"  value="valoare">
+                                                    <input name="add"  value="add" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                    <h1>AVG:</h1>
+                                              </td>
 
-
+                                          <script type="text/javascript" src="../static/trafic.js?u={{ last_updated }}" >
                                           </script>
+                                          </table>
                                </div>
                           <div class="back">
                             <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
@@ -36,6 +53,7 @@
       </td>
 
   </tr>
+
 
 </table>
 
