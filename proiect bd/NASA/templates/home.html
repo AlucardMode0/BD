@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;" />
     <link rel="stylesheet"  href="{{ url_for('static', filename='css/Card_rotary.css') }}"/>
 
 </head>
@@ -18,25 +18,31 @@
 				<h1>Bloc</h1>
 
 						<h1>I know my ID</h1>
-						<form method="POST">
+						<form method="POST" >
 						<input name="ID"  value="ID_casa">
 						<input name="Camera"  value="Camera">
 						<input name="aut"  value="bloc_aut" type="hidden">
-						<input type="submit">
+							<input type="submit"onclick="window.location.href = 'http://127.0.0.1:5000/camera';" >
+							{% if error %}
+							<p class=error><strong>Error:</strong> {{ error }}
+						 	{% endif %}
 							</form>
 
 
 
 						<h1>NEW Home</h1>
-							<form method="POST">
+							<form method="POST"  >
 							<input name="bloc_Str"  value="Str">
 							<input name="bloc_nr"   value="nr">
 							<input name="bloc_bl"   value="bl">
 							<input name="bloc_et"   value="et">
 							<input name="bloc_ap"   value="ap">
-								<input name="aut"  value="bloc_new" type="hidden">
+							<input name="aut"  value="bloc_new" type="hidden">
 							<input name="bloc_nr_camere"   value="nr_camere">
 							<input type="submit" >
+								{% if error1 %}
+							<p class=error><strong>Error:</strong> {{ error1 }}
+					        {% endif %}
 							</form>
 
 
@@ -53,6 +59,9 @@
 					<input name="Camera"  value="Camera">
 						<input name="aut"  value="casa_aut" type="hidden">
 					<input type="submit"  >
+						{% if error %}
+							<p class=error><strong>Error:</strong> {{ error }}
+					    {% endif %}
 					</form>
 
 
@@ -62,14 +71,19 @@
 						<form method="POST">
 						<input name="casa_Str"  value="Str">
 						<input name="casa_nr"   value="nr">
+						<input name="casa_nr_poarta" value="poarta">
 						<input name="casa_nr_camere" value="nr_camere">
 							<input name="aut"  value="casa_new" type="hidden">
 						<input type="submit"  >
+							{% if error1 %}
+							<p class=error><strong>Error:</strong> {{ error1 }}
+					        {% endif %}
 							</form>
 
 			</div>
 		</div>
 </label>
+
 <body class="">
 
 

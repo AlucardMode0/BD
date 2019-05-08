@@ -10,9 +10,28 @@
 </head>
 
 <body>
-
 <table>
-  <tr>
+    <p>UPDATEUL se va face dupa refresh . va rugam asteptati :D </p>
+{% for err in "123456789"  %}
+     <td ><form method="POST"  height="100px"   width="200px" >
+              <input type="submit"  value="{{err}}" name="Camera_id" >
+
+          </form>
+     </td>
+{% endfor %}
+    <p>dupa ce schimbati camera asteptati sa isi dea singura pagina refresh</p>
+</table>
+ {% if wait %}
+    <p class=error><strong>wait 10 seconds to get data from server</strong>{{wait}}
+  {% endif %}
+ {% if error %}
+    <p class=error><strong>{{ error }}</strong>
+  {% endif %}
+ {% if nr_camere %}
+    <p class=error><strong> {{ nr_camere }} </strong>
+  {% endif %}
+<table>
+    <tr>
     <td height="300", width="3000">
         <label>
 
@@ -20,13 +39,32 @@
                       <div class="card">
                           <div class="front">
                                <script src="https://www.amcharts.com/lib/4/core.js"></script>
-                                <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-                                <script src="https://www.amcharts.com/lib/4/charts.js"></script>
-                                          <div id="chartdiv"></div>
-                                          <script type="text/javascript" src="../static/Charts.js?u={{ last_updated }}" >
+                               <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                                          <table style="width:100%">
+                                                <td></td><div id="trafic"></div></td>
+                                              <td align="right">
+                                                        <form method="POST">
+                                                            <h5>trafic</h5>
+                                                    <input name="start"  value="data_start">
+                                                    <input name="stop"  value="data_stop">
+                                                    <input name="action"  value="delete_trafic" type="hidden">
+                                                    <input type="submit" >
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input name="valoare"  value="valoare">
+                                                    <input name="action"  value="add_trafic" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input type="submit" name="action" value="Fill_trafic">
+                                                        </form>
+                                                    <h3>AVG:</h3>
+                                              </td>
 
-
+                                          <script type="text/javascript" src="../static/trafic.js?u={{ last_updated }}" >
                                           </script>
+                                          </table>
                                </div>
                           <div class="back">
                             <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
@@ -36,6 +74,266 @@
       </td>
 
   </tr>
+    <tr>
+    <td height="300", width="3000">
+        <label>
+
+                      <input type="checkbox"  style="display:none"/>
+                      <div class="card">
+                          <div class="front">
+                               <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                                          <table style="width:100%">
+                                                <td></td><div id="apa"></div></td>
+                                              <td align="right">
+                                                        <form method="POST">
+                                                             <h5>apa</h5>
+                                                    <input name="start"  value="data_start">
+                                                    <input name="stop"  value="data_stop">
+                                                    <input name="action"  value="delete_apa" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input name="valoare"  value="valoare">
+                                                    <input name="action"  value="add_apa" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input type="submit" name="action" value="Fill_apa">
+                                                        </form>
+                                                    <h3>AVG:</h3>
+                                              </td>
+
+                                          <script type="text/javascript" src="../static/apa.js?u={{ last_updated }}" >
+                                          </script>
+                                          </table>
+                               </div>
+                          <div class="back">
+                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                        </div>
+                      </div>
+                  </label>
+      </td>
+
+  </tr>
+    <tr>
+    <td height="300", width="3000">
+        <label>
+
+                      <input type="checkbox"  style="display:none"/>
+                      <div class="card">
+                          <div class="front">
+                               <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                                          <table style="width:100%">
+                                                <td></td><div id="gaz"></div></td>
+                                              <td align="right">
+                                                        <form method="POST">
+                                                             <h5>gaz</h5>
+                                                    <input name="start"  value="data_start">
+                                                    <input name="stop"  value="data_stop">
+                                                    <input name="action"  value="delete_gaz" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input name="valoare"  value="valoare">
+                                                    <input name="action"  value="add_gaz" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input type="submit" name="action" value="Fill_gaz">
+                                                        </form>
+                                                    <h3>AVG:</h3>
+                                              </td>
+
+                                          <script type="text/javascript" src="../static/gaz.js?u={{ last_updated }}" >
+                                          </script>
+                                          </table>
+                               </div>
+                          <div class="back">
+                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                        </div>
+                      </div>
+                  </label>
+      </td>
+
+  </tr>
+    <tr>
+    <td height="300", width="3000">
+        <label>
+
+                      <input type="checkbox"  style="display:none"/>
+                      <div class="card">
+                          <div class="front">
+                               <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                                          <table style="width:100%">
+                                                <td></td><div id="electricitate"></div></td>
+                                              <td align="right">
+                                                        <form method="POST">
+                                                             <h5>electricitate</h5>
+                                                    <input name="start"  value="data_start">
+                                                    <input name="stop"  value="data_stop">
+                                                    <input name="action"  value="delete_electricitate" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input name="valoare"  value="valoare">
+                                                    <input name="action"  value="add_electricitate" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input type="submit" name="action" value="Fill_electricitate">
+                                                        </form>
+                                                    <h3>AVG:</h3>
+                                              </td>
+
+                                          <script type="text/javascript" src="../static/electricitate.js?u={{ last_updated }}" >
+                                          </script>
+                                          </table>
+                               </div>
+                          <div class="back">
+                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                        </div>
+                      </div>
+                  </label>
+      </td>
+
+  </tr>
+    <tr>
+    <td height="300", width="3000">
+        <label>
+
+                      <input type="checkbox"  style="display:none"/>
+                      <div class="card">
+                          <div class="front">
+                               <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                                          <table style="width:100%">
+                                                <td></td><div id="lumina"></div></td>
+                                              <td align="right">
+                                                        <form method="POST">
+                                                             <h5>lumina</h5>
+                                                    <input name="start"  value="data_start">
+                                                    <input name="stop"  value="data_stop">
+                                                    <input name="action"  value="delete_lumina" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input name="valoare"  value="valoare">
+                                                    <input name="action"  value="add_lumina" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input type="submit" name="action" value="Fill_lumina">
+                                                        </form>
+                                                    <h3>AVG:</h3>
+                                              </td>
+
+                                          <script type="text/javascript" src="../static/lumina.js?u={{ last_updated }}" >
+                                          </script>
+                                          </table>
+                               </div>
+                          <div class="back">
+                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                        </div>
+                      </div>
+                  </label>
+      </td>
+
+  </tr>
+    <tr>
+    <td height="300", width="3000">
+        <label>
+
+                      <input type="checkbox"  style="display:none"/>
+                      <div class="card">
+                          <div class="front">
+                               <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                                          <table style="width:100%">
+                                                <td></td><div id="zgomot"></div></td>
+                                              <td align="right">
+                                                        <form method="POST">
+                                                             <h5>zgomot</h5>
+                                                    <input name="start"  value="data_start">
+                                                    <input name="stop"  value="data_stop">
+                                                    <input name="action"  value="delete_zgomot" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input name="valoare"  value="valoare">
+                                                    <input name="action"  value="add_zgomot" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input type="submit" name="action" value="Fill_zgomot">
+                                                        </form>
+                                                    <h3>AVG:</h3>
+                                              </td>
+
+                                          <script type="text/javascript" src="../static/zgomot.js?u={{ last_updated }}" >
+                                          </script>
+                                          </table>
+                               </div>
+                          <div class="back">
+                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                        </div>
+                      </div>
+                  </label>
+      </td>
+
+  </tr>
+    <tr>
+    <td height="300", width="3000">
+        <label>
+
+                      <input type="checkbox"  style="display:none"/>
+                      <div class="card">
+                          <div class="front">
+                               <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+                               <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+                                          <table style="width:100%">
+                                                <td></td><div id="temperatura"></div></td>
+                                              <td align="right">
+                                                        <form method="POST">
+                                                             <h5>temperatura</h5>
+                                                    <input name="start"  value="data_start">
+                                                    <input name="stop"  value="data_stop">
+                                                    <input name="action"  value="delete_temperatura" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input name="valoare"  value="valoare">
+                                                    <input name="action"  value="add_temperatura" type="hidden">
+                                                    <input type="submit">
+                                                        </form>
+                                                        <form method="POST">
+                                                    <input type="submit" name="action" value="Fill_temperatura">
+                                                        </form>
+                                                    <h3>AVG:</h3>
+                                              </td>
+
+                                          <script type="text/javascript" src="../static/temperatura.js?u={{ last_updated }}" >
+                                          </script>
+                                          </table>
+                               </div>
+                          <div class="back">
+                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                        </div>
+                      </div>
+                  </label>
+      </td>
+
+  </tr>
+
+
 
 </table>
 
@@ -44,108 +342,3 @@
 
 </html>
 
-<!--
-
-
-
-  <tr>
-    <td height="300", width="3000"> <label>
-                      <input type="checkbox"  />
-                      <div class="card">
-                          <div class="front">
-                                          <div id="chartdiv1"></div>
-                               </div>
-                          <div class="back">
-                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
-                        </div>
-                      </div>
-                  </label>
-      </td>
-  </tr>
-
-  <tr>
-     <td height="300", width="3000"> <label>
-                      <input type="checkbox"  />
-                      <div class="card">
-                          <div class="front">
-                                          <div id="chartdiv"></div>
-                               </div>
-                          <div class="back">
-                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
-                        </div>
-                      </div>
-                  </label>
-      </td>
-  </tr>
-
-----------------------------------------------------------------------------------------------------------------------
- <script src="https://www.amcharts.com/lib/4/core.js"></script>
-                <script src="https://www.amcharts.com/lib/4/charts.js"></script>
-                <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-                  <label>
-                      <input type="checkbox"  />
-                      <div class="card">
-                          <div class="front">
-                                          <div id="chartdiv"></div>
-                                          <script type="text/javascript">
-
-                                            // Themes end
-
-                                            // Create chart instance
-                                            var chart = am4core.create("chartdiv", am4charts.XYChart);
-
-                                            // Add data
-                                            chart.data = generateChartData();
-
-                                            // Create axes
-                                            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-                                            dateAxis.renderer.minGridDistance = 100;
-
-                                            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-
-                                            // Create series
-                                            var series = chart.series.push(new am4charts.LineSeries());
-                                            series.dataFields.valueY = "visits";
-                                            series.dataFields.dateX = "date";
-                                            series.strokeWidth = 2;
-                                            series.minBulletDistance = 5;
-                                            series.tooltipText = "{valueY}";
-                                            series.tooltip.pointerOrientation = "vertical";
-                                            series.tooltip.background.cornerRadius = 20;
-                                            series.tooltip.background.fillOpacity = 0.5;
-                                            series.tooltip.label.padding(12,12,12,12)
-
-                                            // Add cursor
-                                            chart.cursor = new am4charts.XYCursor();
-                                            chart.cursor.xAxis = dateAxis;
-                                            chart.cursor.snapToSeries = series;
-
-                                            function generateChartData() {
-                                                var chartData = [];
-                                                var firstDate = new Date();
-                                                firstDate.setDate(firstDate.getDate() - 1000);
-                                                var visits = 1200;
-                                                for (var i = 0; i < 1200; i++) {
-                                                    // we create date objects here. In your data, you can have date strings
-                                                    // and then set format of your dates using chart.dataDateFormat property,
-                                                    // however when possible, use date objects, as this will speed up chart rendering.
-                                                    var newDate = new Date(firstDate);
-                                                    newDate.setDate(newDate.getDate() + i);
-
-                                                    visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
-
-                                                    chartData.push({
-                                                        date: newDate,
-                                                        visits: visits
-                                                    });
-                                                }
-                                                return chartData;
-                                            }
-                                            </script>
-                        </div>
-                          <div class="back">
-                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
-                        </div>
-                      </div>
-                  </label>
--->
