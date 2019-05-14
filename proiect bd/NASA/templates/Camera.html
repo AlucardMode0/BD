@@ -11,6 +11,7 @@
 
 <body>
 <table>
+
     <p>UPDATEUL se va face dupa refresh . va rugam asteptati :D </p>
 {% for err in "123456789"  %}
      <td ><form method="POST"  height="100px"   width="200px" >
@@ -59,7 +60,7 @@
                                                         <form method="POST">
                                                     <input type="submit" name="action" value="Fill_trafic">
                                                         </form>
-                                                    <h3>AVG:</h3>
+                                                    <h3>AVG:{{AVG_s1}}</h3>
                                               </td>
 
                                           <script type="text/javascript" src="../static/trafic.js?u={{ last_updated }}" >
@@ -67,7 +68,7 @@
                                           </table>
                                </div>
                           <div class="back">
-                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                              <h4>{{senz1}}</h4>
                         </div>
                       </div>
                   </label>
@@ -102,7 +103,7 @@
                                                         <form method="POST">
                                                     <input type="submit" name="action" value="Fill_apa">
                                                         </form>
-                                                    <h3>AVG:</h3>
+                                                    <h3>AVG:{{AVG_s2}}</h3>
                                               </td>
 
                                           <script type="text/javascript" src="../static/apa.js?u={{ last_updated }}" >
@@ -110,7 +111,7 @@
                                           </table>
                                </div>
                           <div class="back">
-                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                           <h4>{{senz2}}</h4>
                         </div>
                       </div>
                   </label>
@@ -145,7 +146,7 @@
                                                         <form method="POST">
                                                     <input type="submit" name="action" value="Fill_gaz">
                                                         </form>
-                                                    <h3>AVG:</h3>
+                                                    <h3>AVG:{{AVG_s3}}</h3>
                                               </td>
 
                                           <script type="text/javascript" src="../static/gaz.js?u={{ last_updated }}" >
@@ -153,7 +154,7 @@
                                           </table>
                                </div>
                           <div class="back">
-                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                            <h4>{{senz3}}</h4>
                         </div>
                       </div>
                   </label>
@@ -188,7 +189,7 @@
                                                         <form method="POST">
                                                     <input type="submit" name="action" value="Fill_electricitate">
                                                         </form>
-                                                    <h3>AVG:</h3>
+                                                    <h3>AVG:{{AVG_s4}}</h3>
                                               </td>
 
                                           <script type="text/javascript" src="../static/electricitate.js?u={{ last_updated }}" >
@@ -196,7 +197,7 @@
                                           </table>
                                </div>
                           <div class="back">
-                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                            <h4>{{senz4}}</h4>
                         </div>
                       </div>
                   </label>
@@ -231,7 +232,7 @@
                                                         <form method="POST">
                                                     <input type="submit" name="action" value="Fill_lumina">
                                                         </form>
-                                                    <h3>AVG:</h3>
+                                                    <h3>AVG:{{AVG_s5}}</h3>
                                               </td>
 
                                           <script type="text/javascript" src="../static/lumina.js?u={{ last_updated }}" >
@@ -239,7 +240,7 @@
                                           </table>
                                </div>
                           <div class="back">
-                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                            <h4>{{senz5}}</h4>
                         </div>
                       </div>
                   </label>
@@ -274,7 +275,7 @@
                                                         <form method="POST">
                                                     <input type="submit" name="action" value="Fill_zgomot">
                                                         </form>
-                                                    <h3>AVG:</h3>
+                                                    <h3>AVG:{{AVG_s6}}</h3>
                                               </td>
 
                                           <script type="text/javascript" src="../static/zgomot.js?u={{ last_updated }}" >
@@ -282,7 +283,7 @@
                                           </table>
                                </div>
                           <div class="back">
-                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                            <h4>{{senz6}}</h4>
                         </div>
                       </div>
                   </label>
@@ -317,7 +318,7 @@
                                                         <form method="POST">
                                                     <input type="submit" name="action" value="Fill_temperatura">
                                                         </form>
-                                                    <h3>AVG:</h3>
+                                                    <h3>AVG:{{AVG_s7}}</h3>
                                               </td>
 
                                           <script type="text/javascript" src="../static/temperatura.js?u={{ last_updated }}" >
@@ -325,7 +326,7 @@
                                           </table>
                                </div>
                           <div class="back">
-                            <img src="https://yt3.ggpht.com/a-/AAuE7mDaIPSwLi2eUtSdUZ0Knhmpfg6vTCe09VKiLw=s900-mo-c-c0xffffffff-rj-k-no">
+                            <h4>{{senz7}}</h4>
                         </div>
                       </div>
                   </label>

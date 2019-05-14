@@ -35,6 +35,6 @@
                     chart.cursor.xAxis = dateAxis;
                     chart.cursor.snapToSeries = series;
                     function generateChartData() {
-                    var chartData = [];
+                    var chartData = [{'date': new Date(2019, 04, 26, 19, 16, 43) ,'visits': 27},];
                         return chartData;
                     }
