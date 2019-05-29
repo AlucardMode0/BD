@@ -337,8 +337,12 @@ def my_form_post():
         cur.execute("Insert into casa values(casa_id_seq.nextval,'{0},nr. {1},bl. {2},sc. {3},et. {4},ap. {5}')".format(Bloc_Str,Bloc_nr,Bloc_bl,Bloc_et,Bloc_ap,Bloc_nr_camere))
         cur.execute("commit")
         for i in range (1,int(Bloc_nr_camere)+1):
+<<<<<<< HEAD
             cur.execute("insert into camera (camera_id,casa_id)select max(casa_id) || '_{0}', max(casa_id) from casa".format(i))
             cur.execute("insert into detalii_camera (camera_id,metri_patrati,inaltime)select max(casa_id) || '_{0}',null,null from casa".format(i))
+=======
+            cur.execute("insert into camera (camera_id,metri_patrati,casa_id)select max(casa_id) || '_{0}', null, max(casa_id) from casa".format(i))
+>>>>>>> master
         cur.execute("select camera_id from (select * from camera order by casa_id desc) where rownum <{0}".format(int(Bloc_nr_camere)+1));
         for result in cur:
             new_cur.execute(
